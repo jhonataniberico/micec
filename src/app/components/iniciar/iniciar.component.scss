@@ -1,0 +1,49 @@
+    .titulo {
+        color: #2a7de1;
+        size: 18px;
+    }
+    
+    .headerModal {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    
+    .ingresarDatos {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .dato {
+        padding-top: 11px;
+        padding-bottom: 10px;
+        border: 1px solid #d1d7de !important;
+        border-radius: 10px;
+    }
+    
+    button {
+        height: 40px;
+        border: 1px solid #707070 !important;
+        border-radius: 5px;
+        margin-top: 20px;
+        bottom: 17px;
+    }
+    
+    .sesionIniciada {
+        font-size: 12px;
+        color: #707070;
+        line-height: 14px;
+        margin-top: 17px;
+        margin-bottom: 20px;
+    }
+    
+    .footerModal {
+        background: #d1d7de73;
+        height: 45px;
+        align-items: center;
+    }
+    
+    .font13 {
+        font-size: 13px!important;
+    }

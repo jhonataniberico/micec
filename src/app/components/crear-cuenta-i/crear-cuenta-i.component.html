@@ -1,0 +1,106 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-6 reserva">
+      <span class="material-icons iconoAlarma">
+        account_circle
+      </span>
+      <h5 class="textoHeader">CREACIÓN DE CUENTA</h5>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mb-5 mt-5">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 backgroundAzul">
+      <h4 class="text-center crearCtaColor font30"><strong>Creación de Cuenta</strong></h4>
+      <p class="text-center font18 crearCtaColor paddingP">Ingrese sus datos en el siguiente formulario y haga click en
+        el boton siguiente</p>
+      <div class="d-flex justify-content-center mb-4">
+        <mat-chip-list>
+          <mat-chip style="background: #2a7de1; border: 2px solid #2a7de1;" color="primary" selected>01</mat-chip>
+          <div class="lineaIntermedia"></div>
+          <mat-chip style="background: none; border: 2px solid #2a7de1; color: #2a7de1;" color="accent" selected>02
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="example-container">
+            <div class="example-full-width input">
+              <input type="text" placeholder="Nombre" matInput [(ngModel)]="request.nombres">
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <mat-select placeholder="Tipo documento" [(ngModel)]="request.idTipoDocumento" name="tipoDocumento"
+                class=" pointer">
+                <!--<input style="width: 93%;margin: 10px;">-->
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let e of combos.tiposDocumento" [value]="e.id">
+                  {{ e.descripcion }}
+                </mat-option>
+              </mat-select>
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <input placeholder="Email" type="text" matInput [(ngModel)]="request.email">
+            </div>
+            <br>
+            <div class="example-full-width input dd">
+              <input type="password" placeholder="Contraseña" matInput [(ngModel)]="request.password">
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <input type="password" placeholder="Repite la contraseña" matInput [(ngModel)]="request.password2">
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="example-container">
+            <div class="example-full-width input">
+              <input type="text" placeholder="Apellido Paterno" matInput [(ngModel)]="request.apellidoPaterno">
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <input type="text" placeholder="Apellido Materno" matInput [(ngModel)]="request.apellidoMaterno">
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <input type="text" placeholder="N° Documento" matInput [(ngModel)]="request.numeroDocumento">
+            </div>
+            <br>
+            <div class="example-full-width input">
+              <mat-select placeholder="Nacionalidad" class=" pointer" [(ngModel)]="request.pais">
+                <input style="width: 93%;margin: 10px;">
+                <mat-option>--</mat-option>
+                <mat-option value="venezuela">Venezuela</mat-option>
+                <mat-option value="peru">Peru</mat-option>
+                <mat-option value="colombia">Colombia</mat-option>
+
+              </mat-select>
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="col-sm-12 d-flex">
+          <section class="example-section checkbox2">
+            <mat-checkbox (change)="onChangeChk($event.checked)" class="example-margin" color="accent"></mat-checkbox>
+          </section>
+          <p class="font18 crearCtaColor">
+            Acepto los terminos, condiciones y tratamiento de mis datos, los que estan regulados y protegidos por la Ley
+            29733 - Ley de Proteccion de Datos Personales, Su informacion es segura, confidencial y protegida <a
+              routerLink="/index/termino-condiciones">Revise los Terminos y Condiciones</a>
+          </p>
+        </div>
+        <div class="alinearBtn">
+          <button mat-raised-button color="primary" [disabled]="notChecked" (click)="siguiente()"
+            class="btnRegresar btn200">SIGUIENTE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

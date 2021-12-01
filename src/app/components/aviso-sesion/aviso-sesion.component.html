@@ -1,0 +1,34 @@
+<div class="container">
+    <br>
+    <div class=" col-md 12 header">
+        <div class="row header">
+            <div class="col-md-6 reserva">
+                <span class="material-icons iconoAlarma">
+                    schedule
+                </span>
+                <h5 class="textoHeader">Reserva de Telecita Médica</h5>
+            </div>
+            <div class="col-md-6 pt-3">
+                <app-stepper-reserva [nombrePaso]="3"></app-stepper-reserva>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body menosPad">
+        <div class="row">
+            <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+            <div class="col-sm-12 contEspecialidad">
+                <b class="Item1">RESULTADO PARA:</b><br>
+                <b class="Item2">{{profesional.especialidades}}</b> <br>
+                <b class="Item3">TELEMEDICINA</b>
+            </div>
+
+            <div class="col-sm-12 bannerIniciar">
+                <h5 class="todo">PARA SEPARAR UNA CITA, POR FAVOR <a routerLink="/iniciar-sesion"
+                        [queryParams]="{previous: authUrl}">INICIE SESION</a> O
+                    <a routerLink="/index/crear-cuenta" [queryParams]="{previous: authUrl}">CREE UNA CUENTA</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

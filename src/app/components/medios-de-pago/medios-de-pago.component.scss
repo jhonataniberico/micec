@@ -1,0 +1,203 @@
+.textoHeader {
+    font-size: 28px;
+}
+.font25{
+    font-size: 25px;
+    font-weight: 500;
+}
+.font20{
+    font-size: 20px;
+}
+.logoWidth2{
+    width: 130px;
+}
+.body{
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 63px;
+    padding-left: 116px;
+    padding-right: 116px;
+    padding-bottom: 76px;
+    margin-bottom: 50px;
+}
+p {
+    // font-family: Roboto;
+    color: #455a64;
+    font-size: 24px;
+    color: #455a64;
+    line-height: 32px;
+}
+
+.pMed{
+    font-size: 16px;
+    color: #455a64;
+    line-height: 17px;
+}
+
+.mat-card-avatar {
+    border-radius: 8%;
+}
+
+.h6Med{
+    color: #2a7de1;
+    font-size: 18px;
+    // font-weight: bold;
+}
+
+.h6Pag {
+    // font-family: Roboto;
+    color: #455a64;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 35px;
+}
+
+.pPag {
+    // font-family: Roboto;
+    color: #455a64;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.btn {
+    width: 30%;
+    border-radius: 5px;
+}
+
+.card {
+    padding: 2% 4% 2% 4%
+}
+
+@media (max-width:600px) {
+    .body{
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    .font25{
+        font-size: 16px;
+    }
+    .font20{
+        font-size: 14px;
+    }
+    .textoHeader {
+        font-size: 22px;
+    }
+    h5 {
+        font-size: 12px;
+    }
+    .logoWidth2 {
+        max-width: 35%;
+    }
+    img{
+        width: 75%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 20px;
+    }
+    p {
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .h6Med {
+        font-size: 17px;
+    }
+    .pMed {
+        font-size: 15px;
+        line-height: 14px;
+    }
+    .h6Pag {
+        font-size: 17px;
+    }
+    .pPag {
+        font-size: 15px;
+    }
+    .btn {
+        font-size: 12px;
+    }
+}
+
+@media (min-width:601px) and (max-width:767px) {
+    .font25{
+        font-size: 16px;
+    }
+    .font20{
+        font-size: 14px;
+    }
+    .body{
+        padding-top: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 15px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    h5 {
+        font-size: 14px;
+    }
+    .logoWidth2 {
+        max-width: 35%;
+    }
+    img{
+        width: 78%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 10px;
+    }
+    p {
+        font-size: 15px;
+        line-height: 23px;
+    }
+    .pMed {
+        font-size: 15px;
+        line-height: 14px;
+    }
+    .h6Pag {
+        font-size: 17px;
+    }
+    .pPag {
+        font-size: 15px;
+    }
+    .btn {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width:993px) {
+    .font25{
+        font-size: 20px;
+    }
+    .font20{
+        font-size: 18px;
+    }
+    .textoHeader {
+        font-size: 25px;
+    }
+    .logoWidth2 {
+        max-width: 35%;
+    }
+    h5 {
+        font-size: 17px;
+    }
+    img {
+        width: 100%;
+    }
+    p {
+        font-size: 18px;
+        line-height: 23px;
+    }
+    .h6Med {
+        font-size: 19px;
+    }
+    .pMed {
+        font-size: 17px;
+        line-height: 17px;
+    }
+    .h6Pag {
+        font-size: 19px;
+    }
+}

@@ -1,0 +1,56 @@
+<h3 class="tituloPerfil mt-3">Mis citas médicas</h3>
+<mat-card class="mt-5 mb-5" *ngFor="let citaH of citasHistoricas">
+  <mat-card-header class="centrarContenido">
+    <mat-card-title
+      [ngClass]=" {'citaConfirmada': citaH.estadoCita === 'A', 'citaProceso': citaH.estadoCita === 'P', 'citaCancelada': citaH.estadoCita === 'C'} ">
+      <mat-icon>
+        {{ ( citaH.estadoCita === 'A'?'check':(citaH.estadoCita === 'P'?'access_time':'close') ) }}
+      </mat-icon> {{ descripcionEstadoCita( citaH.estadoCita ) }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-2 centrarMovil">
+        <img src="{{ citaH.profesional.foto }}" class="citaMedicoFoto" alt="medico">
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6 centrarMovil">
+            <h3 class="citaNombreMedico"> {{ citaH.profesional.nombre }}
+              {{ citaH.profesional.apPaterno }} {{ citaH.profesional.apMaterno }} </h3>
+            <h5 class="citaEspecialidad"> {{ citaH.profesional.especialidades }} </h5>
+            <h5 class="citaCPI">CMP: {{ citaH.profesional.cmp }} </h5>
+            <h5 class="citaCPI">RNE: {{ citaH.profesional.rne }} </h5>
+          </div>
+          <div class="col-md-6 centrarMovil text-right">
+            <h5 class="citaOnline">{{ citaH.servicio.descripcionTipoServicio }}</h5>
+            <h5 style="font-size: 14px;"> {{ citaH.fecha }} a las {{ citaH.hora }} </h5>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6 centrarMovil">
+            <h5 class="citaOnline">Datos de la cita</h5>
+            <h5 class="citaOnline">Reservar nueva cita</h5>
+          </div>
+          <div class="col-md-6 centrarMovil text-right pt-2">
+            <button *ngIf="citaH.estadoCita === 'A'" type="button" class="btn btn-primary btn-sm"
+              (click)="darOpinion(citaH)">
+              Dejar una opinión
+            </button>
+
+            <button *ngIf="citaH.estadoCita === 'P'" type="button" class="btn btn-danger btn-sm"
+              (click)="cancelar(citaH.idCita)">
+              Cancelar cita
+            </button>
+
+            <button *ngIf="citaH.estadoCita === 'P'" type="button" class="btn btn-primary btn-sm"
+              (click)="modificarCita(citaH)">
+              Modificar cita
+            </button>
+            <h5 *ngIf="citaH.estadoCita === 'C'" class="citaEspecialidad">Cita cancelada</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

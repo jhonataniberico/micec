@@ -1,0 +1,61 @@
+<div class="container-fluid imagenPrincipal">
+    <div class="row">
+        <div class=" col-sm-12 col-md-6 offset-md-1 mt-10">
+            <mat-card class="contenedorBusqueda" style="box-shadow: 0 3px 16px 0 #000000b3!important;">
+                <mat-card-header class="cabeceraBusqueda">
+                    <img src="./assets/img/logo.png" style="width: 160px;" alt="">
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="card-body">
+                        <form class="row" #inicioForm="ngForm" novalidate name="inicioForm">
+                            <div class="col-sm-4 col-md-12 col-lg-3 busquedaPor">
+                                <mat-card-subtitle class="mb-0">
+                                    <h6 class="mb-0 negras"><strong>BUSQUEDA POR:</strong></h6>
+                                </mat-card-subtitle>
+                            </div>
+                            <div class="col-sm-8 col-md-12 col-lg-9  pr-0">
+                                <mat-button-toggle-group [(ngModel)]="busquedaPor" name="busquedaPor" (change)="changeTipoBusqueda($event)" #groupBusqueda="matButtonToggleGroup" class="combosBusqueda">
+                                    <mat-button-toggle value="especialidad">Especialidad</mat-button-toggle>
+                                    <mat-button-toggle value="profesional">Profesional</mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+                            <div class="col-sm-12 mt-4">
+                                <div class="row">
+                                    <div class="col-sm-6 pr-0 mb-2" *ngIf="busquedaPor == 'profesional'">
+                                        <div class="input">
+                                            <mat-select placeholder="Profesional" [(ngModel)]="request.profesional.medico" name="profesional" #profesional="ngModel" class="uppercase pointer">
+                                                <input class="input1" type="tel"  matInput (input)="filtrarProfesional($event.target.value)">
+                                                <mat-icon class="iconoBusque" >search</mat-icon>
+                                                <mat-option *ngFor="let p of filtro.profesional" [value]="p.nombre + ' ' + p.apPaterno + ' ' + p.apMaterno" (click)="selectProfesional(p)">
+                                                    <span class="uppercase">{{ p.nombre }} {{ p.apPaterno }}
+                                                        {{ p.apMaterno }}</span>
+                                                </mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                    <div class=" pr-0 col-sm-{{busquedaPor=='especialidad' ? '12' : '6'}}">
+                                        <div class="input ">
+
+                                            <mat-select placeholder="Especialidad" [(ngModel)]="request.especialidad.idEspecialidad" name="especialidad" #especialidad="ngModel" class="uppercase pointer">
+                                                <input class="input1" type="tel"  matInput (input)="filtrarEspecialidad($event.target.value)">
+                                                <mat-icon class="iconoBusque">search</mat-icon>
+                                                <mat-option *ngFor="let e of filtro.especialidad" [value]="e.idEspecialidad" (click)="selectEspecialidad(e)">
+                                                    <span class="uppercase ">{{ e.descripcion }}</span>
+                                                </mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="text-right mb-2" style="margin-right: 4px;">
+                    <button mat-raised-button color="primary" [disabled]="isInvalid(inicioForm)" (click)="aceptar()" style="width: 138px;"><strong>BUSCAR</strong></button>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

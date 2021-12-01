@@ -1,0 +1,210 @@
+h5 {
+    font-family: Roboto;
+    font-size: 28px;
+    color: #2a7de1;
+    margin-top: 3%;
+}
+
+.revision {
+    color: #2a7de1;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.evaluada {
+    color: #787a7d;
+    font-size: 16px;
+}
+
+.opinion {
+    color: #787a7d;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.empujarPoco {
+    margin-left: 3%;
+}
+
+.btnReg {
+    border: solid 1px #2a7de1;
+    background-color: #ffffff;
+    color: #2a7de1;
+    margin-top: 2%;
+    font-size: 14px;
+    padding-right: 23px;
+}
+
+.perfil {
+    margin-top: 3%;
+    display: flex;
+    padding-right: 0px;
+}
+
+.btn {
+    width: 10%;
+    border: solid 1px #2a7de1;
+    background-color: #ffffff;
+    color: #2a7de1;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+.nota {
+    background-color: #ffffff;
+    font-size: 28px;
+    color: #2a7de1;
+    padding-left: 5%;
+}
+
+.texto {
+    font-family: Roboto;
+    font-size: 22px;
+    color: #252525;
+    line-height: 1.23;
+    padding: 3% 6% 0% 6%;
+    margin-bottom: 0!important;
+}
+
+.calificar {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 6%;
+}
+
+.texto2 {
+    font-size: 21px;
+    color: #252525
+}
+
+.p1 {
+    /*  font-size: 16px; */
+    font-size: 15px;
+    color: #787a7d;
+    padding: 4% 0% 2% 0%;
+}
+
+
+/* .p2 {
+    font-size: 16px;
+    color: #787a7d;
+    text-align: justify;
+    padding-bottom: 7px;
+} stilo princip*/
+
+.seleccionar {
+    padding-top: 4%;
+}
+
+.btnOpc {
+    width: 30%;
+    border: solid 1.5px #a5a5a5;
+    font-size: 15px;
+    color: #43464a;
+    font-family: Roboto;
+    margin: 1% 1% 1% 1%;
+}
+
+mat-form-field {
+    width: 95%;
+}
+
+.btnEnv {
+    font-size: 13px;
+    color: #ffffff;
+    margin-right: 3%;
+}
+
+.textCheck {
+    font-size: 17px;
+}
+
+.check {
+    font-family: Roboto;
+    font-size: 19px;
+    color: #787a7d;
+}
+
+@media (max-width:600px) {
+    .empujarPoco {
+        text-align: center;
+    }
+    h5 {
+        font-size: 20px;
+    }
+    .btnOpc {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    .nota {
+        font-size: 19px;
+        min-height: 0px;
+        margin-top: 4%;
+    }
+    .mat-card {
+        margin-top: 4%;
+    }
+    .mat-checkbox-inner-container {
+        height: 14px;
+        width: 14px;
+    }
+    .check {
+        font-size: 10px;
+    }
+    .textCheck {
+        font-size: 10px;
+    }
+}
+
+@media(min-width:601px) and (max-width:767px) {
+    .empujarPoco {
+        text-align: center;
+    }
+    .btnOpc {
+        width: 100%;
+        margin: 4px;
+        font-size: 16px;
+    }
+    .nota {
+        font-size: 20px;
+    }
+    .check {
+        font-size: 10px;
+    }
+    .textCheck {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width:993px) {
+    .empujarPoco {
+        margin-left: 0;
+    }
+    .evaluada {
+        text-align: justify;
+    }
+    .btnOpc {
+        width: 100%;
+        margin: 4px;
+        font-size: 17px;
+    }
+    .nota {
+        font-size: 20px;
+    }
+    .check {
+        font-size: 14px;
+    }
+    .textCheck {
+        font-size: 14px;
+    }
+}
+
+.botonSelect {
+    background-color: #93cdd6;
+}
+
+.botonUnselect {
+    background-color: #ffffff;
+}

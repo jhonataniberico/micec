@@ -1,0 +1,8 @@
+<mat-card>
+        <mat-card-header>
+                <mat-card-title class="headerTitulo px-4 py-1">Seleccionar nuevo cupo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                <app-horario-cita [data]="data" [dataCita]="dataCita" (params)="modificarCita($event)"></app-horario-cita>
+        </mat-card-content>
+</mat-card>

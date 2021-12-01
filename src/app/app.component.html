@@ -1,0 +1,60 @@
+<!-- MENU PRINCIPAL -->
+<nav *ngIf="isIndexPage$" class="navbar navbar-expand-lg navbar-light bg-light"
+    style="box-shadow: 0px 1px 5px 1px darkgrey;">
+    <a class="navbar-brand" (click)="irInicio()">
+        <img src="./assets/img/logo.jpeg" alt="logo" width="120">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Busquedas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trabaja con Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profesionales</a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <span class="material-icons userLogo" (click)="login()">
+                account_circle
+            </span>
+            <a role="button" (click)="login()" style="color: #2a7de1; cursor: pointer;">
+                {{!isLogged$ ? "Iniciar sesión" : nombreUsuario}}
+            </a>
+
+            <button type="button" class="btn btn-outline-primary btn-sm" *ngIf="!isLogged$" (click)="irCuenta()"
+                style="margin-left: 50px;">
+                Crear cuenta
+            </button>
+        </form>
+
+    </div>
+    <div *ngIf="isLogged$">
+        <button style="margin-right: 30px; margin-left: 30px;" mat-button [matMenuTriggerFor]="menu">Ver mi cuenta
+            <mat-icon>expand_more</mat-icon> </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item style="font-size: 13px;" (click)="verPerfil()">
+                <mat-icon style="font-size: 20px;">person</mat-icon> Ver perfil
+            </button>
+            <button mat-menu-item style="font-size: 13px;" (click)="verCitas()">
+                <mat-icon style="font-size: 20px;">calendar_today</mat-icon> Ver mis citas
+            </button>
+            <button mat-menu-item style="font-size: 13px;" (click)="logout()">
+                <mat-icon style="font-size: 20px;">close</mat-icon> Cerrar sesión
+            </button>
+        </mat-menu>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

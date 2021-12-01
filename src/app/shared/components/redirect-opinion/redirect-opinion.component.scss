@@ -1,0 +1,20 @@
+.centrado {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-family: Roboto;
+  font-size: 22px;
+  color: #252525;
+  line-height: 1.23;
+  padding: 3% 6% 0% 6%;
+}
+
+.btnEnv {
+  font-size: 13px;
+  color: #ffffff;
+  margin-right: 3%;
+}

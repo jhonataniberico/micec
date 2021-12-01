@@ -1,0 +1,47 @@
+<div class="container" >
+    <div class="row mt-4 mb-1">
+        <div class="col-md-12 reserva">
+            <span class="material-icons iconoAlarma">
+                access_time
+            </span>
+            <h5 class="textoHeader">PERFIL PROFESIONAL </h5>
+        </div>
+        <div class="col-md-12 centrarContenido">
+            <button mat-raised-button (click)="regresar()" color="primary" class="btnRegresar">Regresar</button>
+        </div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-7">
+            <app-medico [medico]="profesional"></app-medico>
+            <mat-card style=" border-radius: 10px; margin-top: 10px;">
+                <mat-card-content>
+                    <div class="row" style="align-items: baseline;">
+                        <div class="col-md-6">
+                            <h6 class="detalleTitulo">Detalles</h6>
+                        </div>
+                        <!-- <div class="col-md-6 col-sm-12 centrarMovil ">
+                            <button mat-raised-button class="btnRegresar w-100" color="primary"
+                                (click)="dejarOpinion()">
+                                DEJAR UNA OPINIÓN
+                            </button>
+                        </div> -->
+                        <div class="col-md-12">
+                            <mat-tab-group mat-align-tabs="start">
+                                <mat-tab label="Experiencias">
+                                    <app-experiencias></app-experiencias>
+                                </mat-tab>
+                                <mat-tab label="Opiniones">
+                                    <app-opiniones [profesional]="profesional"></app-opiniones>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-5">
+            <app-horario-cita [data]="profesional" [mostrarCabecera]="false" [mostrarCabecera2]="true">
+            </app-horario-cita>
+        </div>
+    </div>
+</div>

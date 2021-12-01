@@ -1,0 +1,42 @@
+.imagenPrincipal{
+    background-image: url('../../../assets/img/background.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+.iconoBusque{
+    right: 10px;
+     position: absolute;
+      top: 13px;
+       color: darkgray;
+}
+.input1{
+    width: 98% !important;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px !important;
+}
+.mt-10{
+    margin-top: 10rem;
+}
+.cabeceraBusqueda{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.contenedorBusqueda{
+    background: #ffffff9c;
+    // opacity: 70%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px darkgrey;
+}
+.mat-raised-button{
+    border-radius: 10px;
+}
+.busquedaPor{
+    align-items: center;
+    display: flex;
+}
+.mb-0{
+    margin-bottom: 0;
+}

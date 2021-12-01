@@ -1,0 +1,86 @@
+<app-spinner [flagSpinner]="flagSpinner"></app-spinner>
+<div class="container" *ngIf="!flagSpinner">
+    <!--   -->
+    <br>
+    <div class="row">
+
+        <div class="col-md-6 reserva">
+            <span class="material-icons iconoAlarma">
+                schedule
+            </span>
+            <h5 class="textoHeader"><strong>Reserva de Telecita Médica</strong></h5>
+        </div>
+        <div class="col-md-6 ">
+            <app-stepper-reserva [nombrePaso]="2"></app-stepper-reserva>
+        </div>
+
+
+        <div class="card-body menosPad">
+            <div class="row">
+                <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+                <div class="col-sm-12 contEspecialidad">
+                    <b class="Item1">RESULTADO PARA:</b><br>
+                    <b class="Item2">{{request.especialidad.descripcion | uppercase}}</b> <br>
+                    <b class="Item3">TELEMEDICINA</b>
+                </div>
+
+                <div class="col-sm-12">
+                    <mat-card style="padding: 0;  border: 1px solid darkgray; border-radius: 10px;">
+                        <mat-card-content>
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-5 col-md-4 d-flex">
+                                        <div class="col-md-3">
+                                            <i class="fa fa-stethoscope iconoTolbar" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <b class="letraAzul">Área Médica</b> <br>
+                                            <span class="colorTitulo"><strong>TELEMEDICINA</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-md-4 d-flex">
+                                        <div class="col-md-3">
+                                            <i class="fa fa-heartbeat iconoTolbar" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <b class="letraAzul">Especialidad</b>
+                                            <br>
+                                            <span class="colorTitulo">
+                                                <strong>{{request.especialidad.descripcion | uppercase}}</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-sm-12" style="margin-top: 20px;">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Se han encontrado {{profesionalesList.length}} resultado(s).</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row m-auto columna">
+        <div class="col-md-3  al100">
+            <!-- *ngIf="profesionalesList.length>0" -->
+            <app-filtro-busqueda *ngIf="!flagSpinner" (paramsBusqueda)=" paramsBusqueda($event) " [parametros]="parametrosFiltros">
+            </app-filtro-busqueda>
+        </div>
+        <div *ngIf="profesionalesList.length>0" class="col-md-9 al100">
+            <div class="row fondoMed" *ngFor="let p of profesionalesList; let i = index">
+                <div class="col-md-7">
+                    <app-medico [medico]="p" [flgShowButton]="true"></app-medico>
+                </div>
+                <div class="col-md-5 text-right px-1 rayaVertical">
+                    <app-horario-cita [data]="p" [dataCita]="null" [mostrarCabecera]="true" (paramsConsulta)="paramsConsulta($event)">
+                    </app-horario-cita>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

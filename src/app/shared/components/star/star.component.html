@@ -1,0 +1,36 @@
+<div class="row mb-2">
+  <div class="col-sm-12">
+    <button mat-icon-button style="outline:none; width: 25px; height: 25px; line-height: 0px;" (click)="seleccionEstrella(1)" [disabled]="!flag">
+      <i *ngIf="star1==1" class="material-icons starColor">star_border</i>
+      <i *ngIf="star1==2" class="material-icons starColor">star</i>
+      <i *ngIf="star1==3" class="material-icons starColor">star_half</i>
+    </button>
+
+    <button mat-icon-button style="outline:none; width: 25px; height: 25px; line-height: 0px;" (click)="seleccionEstrella(2)" [disabled]="!flag">
+      <i *ngIf="star2==1" class="material-icons starColor">star_border</i>
+      <i *ngIf="star2==2" class="material-icons starColor">star</i>
+      <i *ngIf="star2==3" class="material-icons starColor">star_half</i>
+    </button>
+
+    <button mat-icon-button style="outline:none; width: 25px; height: 25px; line-height: 0px;" (click)="seleccionEstrella(3)" [disabled]="!flag">
+      <i *ngIf="star3==1" class="material-icons starColor">star_border</i>
+      <i *ngIf="star3==2" class="material-icons starColor">star</i>
+      <i *ngIf="star3==3" class="material-icons starColor">star_half</i>
+    </button>
+
+    <button mat-icon-button style="outline:none; width: 25px; height: 25px; line-height: 0px;" (click)="seleccionEstrella(4)" [disabled]="!flag">
+      <i *ngIf="star4==1" class="material-icons starColor">star_border</i>
+      <i *ngIf="star4==2" class="material-icons starColor">star</i>
+      <i *ngIf="star4==3" class="material-icons starColor">star_half</i>
+    </button>
+
+    <button mat-icon-button style="outline:none; width: 25px; height: 25px; line-height: 0px;" (click)="seleccionEstrella(5)" [disabled]="!flag">
+      <i *ngIf="star5==1" class="material-icons starColor">star_border</i>
+      <i *ngIf="star5==2" class="material-icons starColor">star</i>
+      <i *ngIf="star5==3" class="material-icons starColor">star_half</i>
+    </button>
+
+    
+  </div>
+
+</div>

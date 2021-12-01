@@ -1,0 +1,59 @@
+<div class="container cont">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img src="./assets/img/logo.png" alt="logo" width="150px" style="margin-top: 40px; margin-bottom:40px;">
+        </div>
+        <app-spinner class="col-md-12 text-center" [flagSpinner]="flagSpinner"></app-spinner>
+        <div *ngIf="!flagSpinner">
+            <div class="col-md-12 principal" style="margin-bottom: 6%; text-align: center;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-center tituloCtr">Iniciar Sesión</h6>
+                    </div>
+
+                    <form class="col-12" #iniciarSesionForm="ngForm" novalidate name="iniciarSesionForm">
+                        <div class="form-group" style="margin-bottom: 5%;">
+                            <input class="inputCta" type="email" name="email" [(ngModel)]="request.username" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 6%;">
+                            <input class="inputCta" type="password" name="password" [(ngModel)]="request.password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="row d-flex justify-content-between check">
+                            <mat-checkbox name="flgRecordar" [(ngModel)]="flgRecordar" style="font-family: Roboto;font-size: 17px;color: #787a7d;">Recordarme
+                            </mat-checkbox>
+                            <a href="#">He olvidado mi contraseña</a>
+                        </div>
+
+                    </form>
+
+                    <div class="col-md-12">
+                        <button (click)="login()" [disabled]="isInvalid(iniciarSesionForm)" class="btn btn-primary btn-lg btn-block">INICIAR SESIÓN</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border: none; text-align: left;">
+                <div class="col-12">
+                    <p style="color: #787a7d;">¿Aún no tienes una cuenta?
+                        <a routerLink="/index/crear-cuenta"> Registrate ahora</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-12 principal" style="margin-top: 6%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="pIn">Inicia sesión con</p>
+                        <button (click)="loginFB()" class="btn btn-primary btn-lg btn-block btnRed" style="margin-bottom: 6%;"><i class="fa fa-facebook" style="font-size:27px"></i> Facebook
+                </button>
+                        <button (click)="loginGoogle()" class="btn btn-danger btn-lg btn-block btnRed"><i
+                        class="fa fa-google" style="font-size:25px"></i> Google</button>
+                    </div>
+                    <div class="col-12 text-left" style="margin-top: 26px;">
+                        <mat-checkbox style="padding-left: 0px; color: #787a7d;">Recordarme</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

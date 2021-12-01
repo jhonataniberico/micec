@@ -1,0 +1,37 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-6 reserva">
+      <span class="material-icons iconoAlarma">
+        account_circle
+        </span>
+      <h5 class="textoHeader">CREACIÓN DE CUENTA</h5>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mb-5 mt-5">
+    <div class="col-sm-12 col-md-9 col-lg-8 backgroundAzul">
+       <h4 class="text-center font30 crearCtaColor"><strong>¡Bienvenido a MI CITA EN CASA!</strong></h4>
+       <p class="text-center paddingCuenta crearCtaColor font18">Su cuenta ha sido creada con exito. Ahora puede obtener una cita con un especialista y/o configurar su cuenta ingresando al "Panel de Control".</p>
+
+       <div class="row" style="margin: 20px;">
+         <div class="col-sm-12 text-center">
+          <mat-icon class="iconoListo">how_to_reg</mat-icon>
+         </div>
+       </div>
+       <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-sm-12 mb-3 text-center">
+          <button mat-raised-button color="primary" (click)="siguiente()" class="w-100">Continuar con mi reserva</button>
+        </div>
+        <div class="col-md-6  col-sm-12 text-center">
+          <button mat-raised-button color="primary"  class="w-100">Ir al panel de control</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

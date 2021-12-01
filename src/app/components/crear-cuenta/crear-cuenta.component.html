@@ -1,0 +1,139 @@
+<div class="container cont">
+    <form #savePaciente="ngForm" novalidate name="savePaciente">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="./assets/img/logo.png" alt="logo" width="150px" style="margin-top: 40px; margin-bottom:40px;">
+            </div>
+
+            <div class="col-md-12 principal" style="margin-bottom: 12%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="text-center tituloCtr">Crear una cuenta</h6>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label class="p2" for="nombre">Nombre(s) *</label>
+                        <input matInput class="form-control inputCta" type="text" name="nombre" id="nombre"
+                            #nombre="ngModel" [(ngModel)]="request.nombres" autocomplete="off" onpaste="return false"
+                            (keypress)="setInputPattern($event, 'letters')"
+                            [pattern]="setValidatorPattern('letters', setQuantifier(''), true, true)" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label class="p2" for="apPat">Apellido paterno *</label>
+                        <input matInput class="form-control inputCta" type="text" name="apPat" id="apPat"
+                            #apPat="ngModel" [(ngModel)]="request.apellidoPaterno" autocomplete="off"
+                            onpaste="return false" (keypress)="setInputPattern($event, 'letters')"
+                            [pattern]="setValidatorPattern('letters', setQuantifier(''), true, true)" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label class="p2" for="apMat">Apellido materno *</label>
+                        <input matInput class="form-control inputCta" type="text" name="apMat" id="apMat"
+                            #apMat="ngModel" [(ngModel)]="request.apellidoMaterno" autocomplete="off"
+                            onpaste="return false" (keypress)="setInputPattern($event, 'letters')"
+                            [pattern]="setValidatorPattern('letters', setQuantifier(''), true, true)" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label class="p2" for="email">Correo electrónico *</label>
+                        <input matInput class="form-control inputCta" type="email" [email]="true" name="email"
+                            id="email" #email="ngModel" [(ngModel)]="request.email" autocomplete="off"
+                            onpaste="return false" required>
+                        <mat-error *ngIf="request.email" class="errorFormato">
+                            <app-validators-messages [controlVar]="email" labelName="Correo electrónico">
+                            </app-validators-messages>
+                        </mat-error>
+                    </div>
+
+                    <div class=" col-md-6 form-group">
+                        <label class="p2" for="telefono">Teléfono celular *</label>
+                        <input matInput class="form-control inputCta" name="telefono" id="telefono" #telefono="ngModel"
+                            [(ngModel)]="request.telefonoMovil" autocomplete="off" maxlength="9" onpaste="return false"
+                            (keypress)="setInputPattern($event, 'cellPhone')"
+                            [pattern]="setValidatorPattern('cellPhone', setQuantifier(''), true, true)" required>
+                        <mat-error *ngIf="request.telefonoMovil" class="errorFormato">
+                            <app-validators-messages [controlVar]="telefono" labelName="Telefono Celular">
+                            </app-validators-messages>
+                        </mat-error>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label class="p2" for="pass">Contraseña *</label>
+                        <div style="align-items: baseline; display: flex;">
+                            <div>
+                                <input matInput class="form-control inputCta" [type]="hide ? 'password' : 'text'"
+                                    name="pass" id="pass" #pass="ngModel" [(ngModel)]="request.password"
+                                    autocomplete="off" onpaste="return false" (input)="checkPassword()"
+                                    (keypress)="setInputPattern($event, 'letterswSimbols')"
+                                    [pattern]="setValidatorPattern('letterswSimbols', setQuantifier(''), true, true)"
+                                    required>
+                                <div *ngIf="request.password">
+                                    <strong>
+                                        <p class="mb-1" [ngClass]="!flag1?'errorFormato':'checkFormato'">
+                                            Al menos una mayúscula
+                                        </p>
+                                    </strong>
+                                    <strong>
+                                        <p class="mb-1" [ngClass]="!flag2?'errorFormato':'checkFormato'">
+                                            Al menos una minúscula
+                                        </p>
+                                    </strong>
+                                    <strong>
+                                        <p class="mb-1" [ngClass]="!flag3?'errorFormato':'checkFormato'">
+                                            Al menos un número
+                                        </p>
+                                    </strong>
+                                    <strong>
+                                        <p class="mb-1"
+                                            [ngClass]="request.password.length<8?'errorFormato':'checkFormato'">
+                                            Al menos 8 caracteres
+                                        </p>
+                                    </strong>
+                                </div>
+                            </div>
+                            <mat-icon matSuffix (click)="hide = !hide" class="ojo">
+                                {{hide ? 'visibility' : 'visibility_off'}}
+                            </mat-icon>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row" style="margin-left: 0px; margin-top: 4%;">
+                            <!--  <app-re-captcha></app-re-captcha> -->
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 5%;"
+                            [disabled]="isInvalid(savePaciente) || !flag1 || !flag2 || !flag3"
+                            (click)="postInsertarPaciente()">
+                            REGISTRARSE
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: contents; ">
+                <div class="col-md-5 linea">
+                    <hr>
+                </div>
+                <p class="col-sm-2 letraO">o</p>
+
+                <div class="col-md-5 linea">
+                    <hr>
+                </div>
+            </div>
+
+            <div class="col-md-12 principal" style="margin-top: 12%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="pIn">Crear una cuenta usando</p>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block " style="margin-bottom: 5%;"><i
+                                class="fa fa-facebook" style="font-size:27px"></i> Facebook</button>
+                        <button type="submit" class="btn btn-danger btn-lg btn-block btnRed"><i class="fa fa-google"
+                                style="font-size:25px"></i> Google</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

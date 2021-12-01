@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-6 reserva">
+      <span class="material-icons iconoAlarma">
+        person
+      </span>
+      <h5 class="textoHeader">MI CUENTA</h5>
+    </div>
+    <div class="col-md-6 centrarContenido text-right izquierda">
+      <button mat-raised-button class="btnPerfil">Cerrar</button>
+    </div>
+  </div>
+  <div class="row mt-4 mb-5">
+    <div class="col-md-4">
+      <mat-list role="list">
+        <mat-list-item role="listitem"><strong class="titulolista">CONFIGURACION DE MI CUENTA</strong></mat-list-item>
+        <mat-list-item role="listitem" class="miCuenta"><a routerLink="perfil" class="paddL10 ">Perfil de usuario</a>
+        </mat-list-item>
+
+      </mat-list>
+
+      <mat-list role="list">
+        <mat-list-item role="listitem"><strong class="titulolista">MIS CITAS CON ESPECIALISTAS</strong></mat-list-item>
+        <mat-list-item role="listitem" class="miCuenta"><a  routerLink="citas" class="paddL10 ">Mis citas medicas</a>
+        </mat-list-item>
+        <mat-list-item role="listitem" class="miCuenta"><a href="" class="paddL10">Historial Clinico</a></mat-list-item>
+
+      </mat-list>
+
+      <mat-list role="list">
+        <mat-list-item role="listitem"><strong class="titulolista">UTILITARIOS</strong></mat-list-item>
+        <mat-list-item role="listitem" class="miCuenta"><a href="" class="paddL10 ">Autodiagnostico</a></mat-list-item>
+        <mat-list-item role="listitem" class="miCuenta"><a href="" class="paddL10 ">Categoriza tu malestar</a></mat-list-item>
+
+      </mat-list>
+    </div>
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

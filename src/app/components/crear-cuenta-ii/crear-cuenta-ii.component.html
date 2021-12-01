@@ -1,0 +1,47 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-6 reserva">
+      <span class="material-icons iconoAlarma">
+        account_circle
+      </span>
+      <h5 class="textoHeader">CREACIÓN DE CUENTA</h5>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mb-5 mt-5">
+    <div class="col-sm-9 backgroundAzul">
+      <h4 class="text-center crearCtaColor font30"><strong>Verificacion de la Cuenta</strong></h4>
+      <p class="text-center  font18 crearCtaColor">Se ha enviado un codigo de verificación a su correo electronico. Si
+        no la encuentra en su buzon de entrada, puede que este en SPAM o quizas la dirección de correo electronico no es
+        valida.</p>
+      <div class="d-flex justify-content-center" style="padding: 5px 0px 7px 0px;">
+        <mat-chip-list>
+          <mat-chip style="background: #2a7de1; border: 2px solid #2a7de1;" color="primary" selected>01</mat-chip>
+          <div class="lineaIntermedia"></div>
+          <mat-chip style="background: #2a7de1; border: 2px solid #2a7de1;" color="primary" selected>02</mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 margenVeri">
+          <div class="example-container">
+            <div class="example-full-width input">
+
+              <input type="text" placeholder="Ingrese su codigo de Verificación" matInput
+                [(ngModel)]="codigoVerificacion">
+            </div>
+          </div>
+        </div>
+
+        <div class="alinearBtn">
+          <button mat-raised-button color="primary" (click)="siguiente()" class="btnRegresar btn200">VERIFICAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

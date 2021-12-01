@@ -1,0 +1,30 @@
+<mat-card style=" box-shadow: 0 0 black; ">
+    <mat-card-content>
+
+        <div class="row">
+            <div class="col-md-5 col-sm-12 text-center centrarEstrellas">
+                <img style="margin: inherit;" src="{{medico.foto}}" mat-card-avatar class="example-header-image">
+                <br>
+            </div>
+            <div class="col-md-7 col-sm-12 centrarMovil">
+                <h6 class="letraAzul extra2 uppercase">
+                    <strong>{{medico.nombre}} {{medico.apPaterno}} {{medico.apMaterno}}</strong>
+                </h6>
+                <h6 class="especialidadTitulo ">{{medico.especialidades}}</h6>
+                <h6 class="CPIMedico"><strong>CMP: {{medico.cmp}}</strong></h6>
+                <h6 class="CPIMedico"><strong>RNE: {{medico.rne}}</strong></h6>
+                <app-star [paramsEstrellas]="paramEstrella"></app-star>
+                <h5 class="precioTitulo" style="font-size: 13px;">
+                    <a href=""> <span>{{medico.nroCalificaciones}}</span> Opiniones</a>
+                </h5>
+                <button mat-stroked-button (click)="verPerfil()" class="btn-outline-primary btnPf"
+                    *ngIf="flgShowButton">Ver perfil</button>
+                <h5 class="precioTitulo">
+                    <i class="fa fa-money" aria-hidden="true" style="margin-right: 5px;"></i>
+                    Consulta {{medico.servicio.descripcionTipoServicio}}: S/ {{medico.tarifa}}
+                </h5>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>

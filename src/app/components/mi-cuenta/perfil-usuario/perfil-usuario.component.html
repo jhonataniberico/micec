@@ -1,0 +1,112 @@
+<mat-card>
+  <mat-card-header class="mt-3 centrarContenido">
+    <mat-card-title class="tituloPerfil">Perfil de Usuario</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row margenContenedor">
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Nombre(s)*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="request.nombres">
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Apellido Paterno*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno"
+            [(ngModel)]="request.apellidoPaterno">
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Apellido Materno*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno"
+            [(ngModel)]="request.apellidoMaterno">
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Contraseña*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <button type="button" class="btn btn-link" style="padding: 0;" (click)="changePassword()">Cambiar Contraseña de acceso
+          </button>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Tipo de Documento*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <select class="form-control" id="idTipoDocumento" name="idTipoDocumento"
+            [(ngModel)]="request.idTipoDocumento">
+            <option [value]="null">Seleccione</option>
+            <option *ngFor="let td of listaTipoDoc" [value]="td.id">{{td.descripcion}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          N° Documento de Identidad*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="numeroDocumento" name="numeroDocumento"
+            [(ngModel)]="request.numeroDocumento">
+        </div>
+      </div>
+      <!-- <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Nombre de Usuario*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+      </div> -->
+      <div class="col-md-6 d-flex align-items-center">
+        <label>
+          Correo electrónico*
+        </label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <p *ngIf="!editEmail" style="margin-bottom: 0;">{{request.email}}</p>
+          <input *ngIf="editEmail" type="text" class="form-control" id="email" name="email"
+            [(ngModel)]="request.newEmail">
+          <button type="button" class="btn btn-link" style="padding: 0;" (click)="showEmail()">Cambiar
+            email</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4 ">
+      <div class=" offset-md-1 col-md-6 col-sm-12 centrarContenido mb-3">
+        <button type="button" class="btn btn-primary" (click)="actualizarPaciente()">GUARDAR</button>
+        <button type="button" class="btn btn-link">CANCELAR</button>
+      </div>
+      <div class="col-md-3 offset-md-1 col-sm-12 text-right centrarContenido">
+        <a (click)="eliminarCuenta()" class="badge badge-light eliminarCta" style="color: #787a7d;">
+          <mat-icon>cancel</mat-icon> Eliminar mi cuenta
+        </a>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,118 @@
+<div class="text-right my-2" *ngIf="mostrarCabecera">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <button type="button" class="btn btn-outline-primary btn-sm" (click)="cambioServicio(2)"
+            [ngClass]="data.tipoServicio==2?'servSeleccion':'servSinSeleccion'">
+            <mat-icon>room</mat-icon> Online
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm" (click)="cambioServicio(1)"
+            [ngClass]="data.tipoServicio==1?'servSeleccion':'servSinSeleccion'">
+            <mat-icon>card_travel</mat-icon> Presencial
+        </button>
+    </div>
+</div>
+
+<div>
+    <div class="row">
+        <div class="col-md-12 cardHorario">
+            <div *ngIf="mostrarCabecera" class="d-flex">
+                <h6 class="consultaOnline">Consulta:</h6>
+                <div *ngIf="!flgConsulta" class="d-flex mx-2">
+                    <button mat-button class="servSinSeleccion" disabled>
+                        <i class="material-icons iconoLocalizacion">location_on</i> Online
+                    </button>
+                </div>
+                <div *ngIf="flgConsulta" class="d-flex mx-2">
+                    <button mat-button *ngFor="let cLs of consultoriosList"
+                        [ngClass]="idConsultorio==cLs.idConsultorio?'servSeleccion':'servSinSeleccion'"
+                        (click)="seleccionConsultorio(cLs.idConsultorio)">
+                        <i class="material-icons iconoLocalizacion">location_on</i> {{cLs.nombreConsultorio}}
+                    </button>
+                    <h6 *ngIf="!flgConsultorios" class="text-left mx-3 mt-2">
+                        No hay consultorios disponibles para esta especialidad
+                    </h6>
+                </div>
+            </div>
+            <div class="d-flex headerHorarios" *ngIf="mostrarCabecera2">
+                <h3 class="tituloHorario">
+                    <mat-icon style="font-size: 20px; margin: 0px 10px 0px 10px;">calendar_today</mat-icon>
+                    Agendar una cita
+                </h3>
+            </div>
+
+            <div *ngIf="flgVacio">
+                <h6 class="d-flex align-items-center m-5 padding-top: 71px;">No hay fechas disponibles para estos
+                    filtros</h6>
+            </div>
+
+            <div class="d-flex"
+                style="font-weight: 600; align-items: center; font-size: 14px; justify-content: space-between; padding: 12px 5px 5px 5px;">
+                <button class="btnVerHoras" *ngIf="flgMostrar" (click)="lastPage()" [disabled]="nuPagina==1">
+                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                </button>
+                <div *ngFor="let h of horario" class="diasAgenda px-2" scope="col">{{h.dia}}</div>
+                <button class="btnVerHoras" *ngIf="flgMostrar" (click)="nextPage()"
+                    [disabled]="nuPagina>=cantPermitida || nuRegisMostrar>nuTotalReg">
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="d-flex " style="justify-content: space-evenly;">
+                <div *ngFor="let h of horario" class="fechaAgenda px-3" scope="col">{{h.fechaLetra}}</div>
+            </div>
+
+            <div class="d-flex" style="justify-content: space-evenly;">
+                <div>
+                    <div class="pl-2 pr-1" *ngFor="let cp of cuposList1; let i = index">
+                        <div *ngIf="i<cantidadHoras" class="mb-2" (click)="registrar(cp)"
+                            [ngClass]="cp.estado=='D'?'horaActiva':'horaInactiva'">
+                            {{cp.horaInicio}}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="pl-2 pr-1" *ngFor="let cp of cuposList2; let i = index">
+                        <div *ngIf="i<cantidadHoras" class="mb-2" (click)="registrar(cp)"
+                            [ngClass]="cp.estado=='D'?'horaActiva':'horaInactiva'">
+                            {{cp.horaInicio}}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="pl-2 pr-1" *ngFor="let cp of cuposList3; let i = index">
+                        <div *ngIf="i<cantidadHoras" class="mb-2" (click)="registrar(cp)"
+                            [ngClass]="cp.estado=='D'?'horaActiva':'horaInactiva'">
+                            {{cp.horaInicio}}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="pl-2 pr-1" *ngFor="let cp of cuposList4; let i = index">
+                        <div *ngIf="i<cantidadHoras" class="mb-2" (click)="registrar(cp)"
+                            [ngClass]="cp.estado=='D'?'horaActiva':'horaInactiva'">
+                            {{cp.horaInicio}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" *ngIf="cantidadTotal1>cantidadHoras || cantidadTotal2>cantidadHoras 
+                    || cantidadTotal3>cantidadHoras || cantidadTotal4>cantidadHoras">
+                    <button class="btnVerHoras" (click)="verMas()">
+                        <h6 class="text-center verMasAgenda">Ver mas horas
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </h6>
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center" *ngIf="cantidadHoras>5">
+                    <button class="btnVerHoras" (click)="verMenos()">
+                        <h6 class="text-center verMasAgenda">Ver menos horas
+                            <mat-icon>keyboard_arrow_up</mat-icon>
+                        </h6>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

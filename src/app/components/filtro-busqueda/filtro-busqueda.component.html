@@ -1,0 +1,99 @@
+<mat-card style="border-radius: 5px; margin-bottom: 14%;">
+    <div class="row">
+        <h5><strong>Filtrar búsqueda por</strong></h5>
+        <div class="col-md-12 mt-3">
+            <mat-accordion class="example-headers-align" multi="true">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p class="textCheck"><strong>Precio</strong></p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-4">
+                            <input matInput type="number" class="inputPrecio" name="precio1" min="1" max="999" autocomplete="off" placeholder="S/" [(ngModel)]="precioDesde" onpaste="return false" (keypress)="setInputPattern($event, 'positiveDigits')" [pattern]="setValidatorPattern('positiveDigits', setQuantifier('+'), true, true)">
+                        </div>
+                        <p class="text">a</p>
+                        <div class="col-4">
+                            <input matInput type="number" class="inputPrecio" name="precio2" [min]="precioDesde" autocomplete="off" placeholder="S/" [(ngModel)]="precioHasta" onpaste="return false" (keypress)="setInputPattern($event, 'positiveDigits')" [pattern]="setValidatorPattern('positiveDigits', setQuantifier('+'), true, true)">
+                        </div>
+                        <button type="button" name="precio" class="d-flex align-items-center btnPrecio" (click)="busquedaPrecio(1,null)" [disabled]="precioHasta && (precioHasta<precioDesde)">
+                            <mat-icon>trending_flat</mat-icon>
+                        </button>
+                    </div>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkPrecio1" (change)="busquedaPrecio(null,1)">
+                        Hasta S/50
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkPrecio2" (change)="busquedaPrecio(null,2)">
+                        De S/ 50 a S/ 100
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkPrecio3" (change)="busquedaPrecio(null,3)">
+                        De S/ 100 a más
+                    </mat-checkbox><br>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]=true>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p class="textCheck"><strong> Calificación</strong></p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkEstrella5" (change)="busquedaEstrella(5)">
+                        5 Estrellas
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkEstrella4" (change)="busquedaEstrella(4)">
+                        4 Estrellas
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkEstrella3" (change)="busquedaEstrella(3)">
+                        3 Estrellas
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkEstrella2" (change)="busquedaEstrella(2)">
+                        2 Estrellas
+                    </mat-checkbox><br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkEstrella1" (change)="busquedaEstrella(1)">
+                        1 Estrella
+                    </mat-checkbox><br>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]=true>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p class="textCheck"><strong>Género</strong></p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkSexo1" (change)="busquedaSexo(1)">Hombre</mat-checkbox>
+                    <br>
+                    <mat-checkbox class="text" color='primary' [(ngModel)]="checkSexo2" (change)="busquedaSexo(2)">Mujer</mat-checkbox>
+                    <br>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]=true>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p class="textCheck"><strong>Tiempo de Colegiatura</strong></p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-radio-group [(ngModel)]="ordenColegiatura" name="ordenColeg" #ordenColeg="ngModel" (change)="busquedaOrdenColeg()" required>
+                        <mat-radio-button color='primary' value="ASC">De menor a mayor</mat-radio-button>
+                        <br>
+                        <mat-radio-button color='primary' value="DESC">De mayor a menor</mat-radio-button>
+                    </mat-radio-group>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]=true>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p class="textCheck"><strong>Modalidad</strong></p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-radio-group [(ngModel)]="tipoServicio" name="tipoServ" #tipoServ="ngModel" (change)="busquedaModalidad()" required>
+                        <mat-radio-button color='primary' [value]="1">Presencial</mat-radio-button>
+                        <br>
+                        <mat-radio-button color='primary' [value]="2">Online</mat-radio-button>
+                    </mat-radio-group>
+                    <br>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</mat-card>

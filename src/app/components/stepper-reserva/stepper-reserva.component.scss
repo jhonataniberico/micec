@@ -1,0 +1,74 @@
+.lineaHorizontal {
+    border-top: 2px solid #2a7de1;
+    width: 75%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    margin-top: 27px;
+    z-index: -1;
+    margin-right: 75px;
+}
+
+.step {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: solid 1px #2a7de1;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.stepColorAzul {
+    width: 56px;
+    height: 56px;
+    background-color: #2a7de1;
+}
+
+.stepColorBlanco {
+    width: 56px;
+    height: 56px;
+    background-color: #ffffff;
+    border: solid 2px #2a7de1;
+}
+
+.texto {
+    font-size: 14px;
+    color: #2a7de1;
+    line-height: 2;
+}
+
+.opacidad {
+    opacity: 0.5;
+}
+
+.linea {
+    color: #2a7de1;
+    width: 9%;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-top: 3px solid #2a7de1;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    z-index: -1;
+}
+
+.lineaAzul {
+    opacity: 0.5px;
+}
+
+.icon2 {
+    opacity: 0.5;
+    color: #2a7de1;
+    font-size: 27px;
+}
+
+.icon3 {
+    color: white;
+    font-size: 27px;
+}
+
+.stepColorAzul .icon2 {
+    color: #ffffff;
+    opacity: 1;
+}

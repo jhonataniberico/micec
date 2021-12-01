@@ -1,0 +1,35 @@
+h5 {
+    font-weight: bold;
+    font-size: 17px;
+    color: #2a7de1;
+    padding-left: 14px;
+}
+
+.textCheck {
+    font-weight: 600;
+    font-size: 15px;
+    color: #787a7d;
+    display: contents;
+}
+
+.text {
+    // font-family: Roboto;
+    font-size: 13px;
+    color: #787a7d;
+}
+
+@media (max-width:600px) {}
+
+@media (min-width:601px) and (max-width:767px) {}
+
+@media (min-width: 768px) and (max-width:993px) {}
+
+.inputPrecio{
+    border-radius: 2px;
+    border: solid 0.5px #d1d7de;
+}
+.btnPrecio{
+    border-radius: 2px;
+    border: solid 0.5px #d1d7de;
+    height: 22px;
+}

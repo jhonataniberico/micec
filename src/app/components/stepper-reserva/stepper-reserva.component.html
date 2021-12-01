@@ -1,0 +1,33 @@
+<div class=" row" style="justify-content: flex-end;">
+    <div class="lineaHorizontal"></div>
+
+    <div class="col-3 text-center" style="padding-right: 0px;">
+        <button class="btn  step {{busqueda?'stepColorAzul':'stepColorBlanco'}}">
+       <mat-icon class="icon3">search</mat-icon>
+    </button>
+        <h2 class="texto {{busqueda?'':'opacidad'}}">Búsqueda</h2>
+    </div>
+    <div class="col-3 text-center" style="padding-right: 0px; padding-left: 0px;">
+        <button class=" btn step {{seleccion? 'stepColorAzul': 'stepColorBlanco'}} ">
+        <mat-icon class="icon3">event</mat-icon>
+          </button>
+        <br>
+        <h2 class="texto {{seleccion? '': 'opacidad'}} ">Selección</h2>
+    </div>
+
+    <div class="col-3 text-center" style="padding-right: 0px; padding-left: 0px;">
+        <button class="btn step {{identificacion?'stepColorAzul':'stepColorBlanco'}}">
+        <mat-icon class="icon2">perm_identity</mat-icon> 
+         </button>
+        <br>
+        <h2 class="texto {{identificacion?'':'opacidad'}}">Identificación</h2>
+    </div>
+
+    <div class="col-3 text-center" style="padding-left: 0px;">
+        <button class=" btn step {{reservaRealizada? 'stepColorAzul': 'stepColorBlanco'}} ">
+        <mat-icon class="icon2">done</mat-icon>
+          </button>
+        <br>
+        <h2 class="texto {{reservaRealizada? '': 'opacidad'}} ">¡Reserva Realizada!</h2>
+    </div>
+</div>

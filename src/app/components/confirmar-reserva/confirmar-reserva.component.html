@@ -1,0 +1,107 @@
+<app-spinner [flagSpinner]="flagSpinner"></app-spinner>
+<div class=" container-lg" *ngIf="!flagSpinner">
+    <br>
+    <div class="row">
+        <div class="col-md-6 reserva">
+            <span class="material-icons iconoAlarma">
+                schedule
+            </span>
+            <h5 class="textoHeader">Reserva de Telecita Médica</h5>
+        </div>
+        <div class="col-md-6 pt-3">
+            <app-stepper-reserva [nombrePaso]="4"></app-stepper-reserva>
+        </div>
+    </div>
+    <div class="card-body menosPad">
+        <div class="row">
+            <button mat-raised-button color="primary" (click)="regresar()" class="btnRegresar">Regresar</button>
+            <div class="col-sm-12 contEspecialidad">
+                <b class="Item1">RESULTADO PARA:</b><br>
+                <b class="Item2">{{datosReserva.especialidad}}</b> <br>
+                <b class="Item3">TELEMEDICINA</b>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <div class="col-md-12">
+                <div class="alert alert-warning text-center" role="alert">
+                    <h4><strong>HAZ CLICK EN "CONFIRMAR RESERVA" SI LOS DATOS ESTAN CORRECTOS.</strong></h4>
+                </div>
+                <div class="alert alert-warning text-center" role="alert">
+                    <h4><strong>ESTIMADO PACIENTE, POR FAVOR CONSIDERE LAS SIGUIENTES INDICACIONES</strong></h4>
+                    <h6 class="parrafo2">AL COMPLETAR LA RESERVA DE TELEMEDICINA, ENVIAREMOS UN EMAIL PARA REALIZAR EL PAGO Y CONFIRMAR LA CITA</h6>
+                </div>
+            </div>
+
+
+            <div class="col-md-2"></div>
+            <div class="col-md-8 mt-4">
+                <div class="card">
+                    <h5 class="card-header cabeceraReserva">DATOS DE LA RESERVA</h5>
+                    <div class="row card-body">
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">HORA DE LA CITA:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">{{datosReserva.horaYFecha}}</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">PROFESIONAL:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">{{datosReserva.profesional | uppercase}}</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">ESPECIALIDAD:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">{{datosReserva.especialidad | uppercase}}</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">DIRECCIÓN DE CENTRO:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">TELEMEDICINA</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">NOMBRE:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">{{datosReserva.nombre | uppercase}}</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">CORREO ELECTRONICO:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">{{datosReserva.email}}</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">REVISIÓN:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">PARTICULAR</h6>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="letraAzul">PRECIO CONSULTA:</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h6 class="colorTitulo">S/ {{datosReserva.precioConsulta}}</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-5 mb-3">
+                <button mat-raised-button color="primary" class=" mt-5 mb-3" (click)="confirmarReserva()" style="padding: 15px 0px 5px 0px; font-size: 40px; width: 100%;" [disabled]="!confirmarReservaRequest.cita">
+                        <h2>CONFIRMAR RESERVA</h2>
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.iconoTolbar {
+    color: #2a7de1;
+    font-size: 49px;
+    padding-left: 0px;
+}
+
+.p-0 {
+    padding: 0px!important;
+}
+
+mat-card {
+    box-shadow: 0 0 black!important;
+}
+
+@media (max-width:600px) {
+    .ordenar {
+        text-align: center;
+    }
+    .btnClasificar {
+        width: 100%;
+        margin: 1%;
+    }
+}
+
+@media (min-width:601px) and (max-width:767px) {
+    .ordenar {
+        text-align: center;
+    }
+    .btnClasificar {
+        width: 40%;
+        margin: 1%;
+    }
+}
+
+@media (min-width: 768px) and (max-width:993px) {
+    .ordenar {
+        text-align: center;
+    }
+    .btnClasificar {
+        width: 22%;
+        margin: 1%;
+    }
+}

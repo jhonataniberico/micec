@@ -1,0 +1,123 @@
+<app-spinner [flagSpinner]="flagSpinner"></app-spinner>
+<div class="container" *ngIf="!flagSpinner">
+    <br>
+    <div *ngIf="cita.idCita" class="row">
+        <div class="col-md-6 reserva">
+            <span class="material-icons iconoAlarma">
+                schedule
+            </span>
+            <h5 class="textoHeader">Reserva de Telecita Médica</h5>
+        </div>
+        <div class="col-md-6 pt-3">
+            <app-stepper-reserva [nombrePaso]="4"></app-stepper-reserva>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 contEspecialidad">
+                    <b class="Item1">RESULTADO PARA:</b><br>
+                    <b class="Item2">{{cita.profesional.especialidad.descripcion}}</b> <br>
+                    <b class="Item3">TELEMEDICINA</b>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 body">
+            <img src="./assets/img/logo.png" class="logoWidth2" alt="logo">
+            <div class="row">
+                <div class="card col-md-12  text-center"
+                    style="padding-top: 3%; padding-bottom: 2%; margin-bottom: 4%; margin-top:4%;">
+                    <p class="font25">Gracias por reservar su consulta médica con <span style="color:#2a7de1;">Mi cita
+                            en Casa</span></p>
+                    <p class="font20"> Su cita <strong>{{cita.servicio.descripcionTipoServicio}}</strong> con el
+                        especialista <strong>{{cita.profesional.nombre}} {{cita.profesional.apPaterno}}
+                            {{cita.profesional.apMaterno}}</strong> ha sido reservada exitosamente.</p>
+                    <p class="font20">Número de cita: {{cita.idCita}}</p>
+                </div>
+                <div class="card col-md-12">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <img src="{{cita.profesional.foto}}" mat-card-avatar class="example-header-image">
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <h6 class="h6Med">
+                                <strong>{{cita.profesional.nombre}} {{cita.profesional.apPaterno}}
+                                    {{cita.profesional.apMaterno}}</strong>
+                            </h6>
+                            <p class="pMed">
+                                <strong>Especialidad: </strong>{{cita.profesional.especialidad.descripcion}}
+                            </p>
+                            <p class="pMed">
+                                <strong>Contacto: </strong>{{cita.profesional.telefonoMovil}}
+                            </p>
+                            <p class="pMed">
+                                <strong>Correo electrónico: </strong>{{cita.profesional.email}}
+                            </p>
+                            <p class="pMed">
+                                <strong>Costo de consulta: </strong>S/{{cita.precioCita}}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12 mt-4">
+                            <p class="pMed"><strong>Día y hora de la cita médica</strong></p>
+                            <p class="pMed">{{cita.diaHora}}</p>
+                            <p class="pMed"><strong>Modalidad y duración</strong></p>
+                            <p class="pMed">{{cita.servicio.descripcionTipoServicio}} - {{cita.duracionCita}} min</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" card col-md-12 mt-3">
+                    <h6 class="h6Pag"><strong>MEDIOS DE PAGO</strong></h6>
+                    <div style="flex-direction: column;">
+                        <div *ngFor="let mLs of cita.profesional.medioPagoList" class="d-flex justify-content-center"
+                            style="padding-top: 4%;">
+                            <div class="col-md-12 row">
+                                <div class="col-md-3">
+                                    <img src="{{mLs.logo}}" width="122px">
+                                </div>
+                                <div class="col-md-9 d-flex align-items-center flex-column justify-content-center">
+                                    <p *ngFor="let dLs of mLs.medioPagoLs" class="pPag ">
+                                        <span>{{dLs.desModalidad}}</span>: {{dLs.valor}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-md-12 mt-3">
+                    <p class="pPag">Nota: Todos los medios de pago están a titularidad del especialista
+                        {{cita.profesional.nombre}} {{cita.profesional.apPaterno}} {{cita.profesional.apMaterno}}
+                    </p>
+                </div>
+                <div class="card col-md-12 mt-3">
+                    <h6 class="h6Pag"><strong>Confirmación de pago</strong></h6>
+                    <p class="pPag">- Luego de realizar el pago, se debe enviar la foto del voucher al Whatsapp
+                        {{cita.profesional.telefonoMovil}} (link directo al wsp del especialista:
+                        <a href="http://wa.me/{{cita.profesional.telefonoMovil}}">
+                            http://wa.me/{{cita.profesional.telefonoMovil}}
+                        </a> ) o al correo {{cita.profesional.email}}.</p><br>
+                    <p class="pPag">- Luego que el especialista confirme el pago se comunicará con usted a través del
+                        mismo medio de comunicación para coordinar el medio por el cual se realizará la consulta médica.
+                    </p>
+                </div>
+
+                <div class="col-md-12  mt-4 alert alert-primary d-flex"
+                    style="border-radius: 0px; width: 100%;  background-color: #ebf3fc; border: 0px; align-content: center;"
+                    role="alert">
+                    <mat-icon style="font-size: 35px; margin-right: 25px; margin-top: 5px;">report_problem</mat-icon>
+                    <p class="pPag ">Estimado paciente, si no puede asistir a la cita médica, por favor modifíquela o
+                        cancélela. De este modo otro paciente podrá tomar el turno.</p>
+                </div>
+                <div class="col-md-12  text-right mt-4">
+                    <button type="button" class="btn btn-primary" style="margin-right: 3%;" (click)="modificarCita()">
+                        Modificar Cita
+                    </button>
+                    <button type="button" class="btn btn-primary"
+                        style="background-color:#ce5858; border-color:#ce5858;" (click)="cancelar()">
+                        Cancelar Cita
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

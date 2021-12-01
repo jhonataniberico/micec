@@ -1,0 +1,18 @@
+<div class="text-center pt-2">
+  <h5><strong> Alerta </strong></h5>
+</div>
+
+<div class="col-12 text-center">
+  {{mensajeConfirmacion}}
+</div>
+
+<mat-dialog-actions>
+  <div class="col-md-12 text-center">
+    <button type="button" class="btn btn-primary btn-sm px-3 mx-2" (click)="confirmacionCorrecta()">
+      Si <i class="fa fa-check"></i>
+    </button>
+    <button type="button" class="btn btn-danger btn-sm px-3 mx-2" (click)="dismiss()">
+      No <i class="fa fa-close"></i>
+    </button>
+  </div>
+</mat-dialog-actions>

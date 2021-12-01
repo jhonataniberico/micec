@@ -1,0 +1,11 @@
+label {
+  color: #252525;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media (min-width:767px) and (max-width:993px){
+    label{
+        font-size: 14px;
+    }
+}
